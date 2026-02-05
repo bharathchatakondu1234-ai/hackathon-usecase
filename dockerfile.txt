@@ -1,0 +1,12 @@
+# Step 1: Base image (Java version ni batti marchukondi, e.g., openjdk:17)
+FROM openjdk:17-jdk-slim
+
+# Step 2: Working directory set cheyadam
+WORKDIR /app
+
+# Step 3: Maven/Gradle build nundi vache JAR file ni copy cheyadam
+# JAR file name 'target/*.jar' format lo untundi
+COPY target/*.jar app.jar
+
+# Step 4: Application run cheyadam
+ENTRYPOINT ["java", "-jar", "app.jar"]
