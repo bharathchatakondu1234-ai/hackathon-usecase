@@ -1,0 +1,20 @@
+apiVersion: autoscaling/v2
+kind: Deployment
+metadata:
+  name: vpa-demo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vpa-demo
+ template:
+   metadata:
+     labels:
+       app: vpa-demo
+spec:
+  containers:
+  - name: app
+    image: nginx
+    resources:
+      requests:
+        cpu: "100m"
