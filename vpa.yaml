@@ -1,0 +1,11 @@
+apiVersion: autoscaling/v2
+kind: VerticalPodAutoscaler
+metadata:
+  name: vpa-demo
+spec:
+  targetRef:
+    apiVersion: "apps/v1"
+    kind: Deployment
+    name: vpa-demo-app
+  updatePolicy:
+    updateMode: "Recreate"
